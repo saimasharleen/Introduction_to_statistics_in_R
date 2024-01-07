@@ -18,11 +18,10 @@ mean(usa_consumption$consumption)
 median(usa_consumption$consumption)
 # Filter food_consumption for rows with data about Belgium and the USA. Group the filtered data by country. 
 # Calculate the mean and median of the kilograms of food consumed per person per year in each country. Call these columns mean_consumption and median_consumption
-food_consumption %>%
-  # Filter for Belgium and USA
-  filter(country %in% c("Belgium", "USA")) %>%
-  # Group by country
-  group_by(country, consumption) %>%
-  # Get mean_consumption and median_consumption
-  summarize(mean_consumption = mean(consumption),
-      median_consumption = median(consumption))
+# Filter for Belgium and USA
+filter(country %in% c("Belgium", "USA")) %>%
+# Group by country
+group_by(country) %>%
+# Get mean_consumption and median_consumption
+summarize(mean_consumption = mean(consumption),
+          median_consumption = median(consumption))
